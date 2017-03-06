@@ -1,6 +1,6 @@
-from django.conf.urls import include, url
-from . import views
+from django.conf.urls import url
+from .views import DashboardView
 
 urlpatterns = [
-        url(r'^$', views.dashboard, name='dashboard'),
+        url(r'^$', DashboardView.as_view() , name="dashboard"),
     ]

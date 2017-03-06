@@ -1,7 +1,8 @@
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.views.generic.base import TemplateView
 
-@login_required
-def dashboard(request):
-    return render(request,'dashboard/index.html')
+
+class DashboardView(TemplateView):
+    val = 1
+    template_name ="dashboard/index.html"
 
