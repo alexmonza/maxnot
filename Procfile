@@ -1,1 +1,1 @@
-web: gunicorn maxnot.wsgi
+web: gunicorn app.wsgi
