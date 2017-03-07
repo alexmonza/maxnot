@@ -1,5 +1,6 @@
 from django.db import models
 from religion.models import Religion
+from django.urls import reverse
 
 class Alumno(models.Model):
 
@@ -17,6 +18,9 @@ class Alumno(models.Model):
                               choices=GENERO_CHOICES,)
     fecha_nacimiento = models.DateField()
     religion = models.ForeignKey(Religion)
+
+    def get_absolute_url(self):
+        return reverse('alumno-detail', kwargs={'pk': self.pk})
 
 
 

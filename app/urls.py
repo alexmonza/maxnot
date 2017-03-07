@@ -20,6 +20,7 @@ from usuario import views as user_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^dashboard/', include('dashboard.urls', namespace='dashboard')),
+    url(r'^alumnos/', include('alumno.urls')),
     url(r'^logout/', user_views.log_out),
     url(r'', user_views.log_in, name='login'),
 

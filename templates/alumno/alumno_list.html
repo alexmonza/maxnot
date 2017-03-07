@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Alumnos{% endblock %}
+{% block css %}
+
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+{% endblock %}
+
+
+{% block content %}
+
+
+<div id="page-wrapper">
+    <div class="row">
+         <div class="col-lg-12">
+             <h1 class="page-header">Alumnos</h1>
+         </div>
+    </div>
+
+
+    <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Tabla alumnos
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>RUN</th>
+                                        <th>Género</th>
+                                        <th>Nombres</th>
+                                        <th>Paterno</th>
+                                        <th>Materno</th>
+                                        <th>Fecha Nacimiento</th>
+                                        <th>Religión</th>
+                                    </tr>
+                                </thead>
+                                {% for alumno in object_list %}
+                                <tbody>
+                                    <tr class="odd gradeX">
+                                        <td>{{ alumno.run }}</td>
+                                        <td>{{ alumno.genero }}</td>
+                                        <td>{{ alumno.nombres }}</td>
+                                        <td>{{ alumno.apellido_paterno }}</td>
+                                        <td>{{ alumno.apellido_materno }}</td>
+                                        <td>{{ alumno.fecha_nacimiento }}</td>
+                                        <td>{{ alumno.religion.nombre_religion }}</td>
+                                    </tr>
+                                </tbody>
+                                 {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+{% endblock %}
+
+
+{% block footer %}
+
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+  <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
+
+{% endblock %}
